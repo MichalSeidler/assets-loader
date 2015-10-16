@@ -1,0 +1,44 @@
+{
+	"name"			: "saja/assets-loader",
+	"type"			: "module",
+	"version"		: "0.1.0",
+	"title"			: "Nette module - Assets Loader",
+	"description"	: "Nette module for loading css and js files into templates",
+	"keywords"		: ["saja", "nette", "assets", "css", "js"],
+	"homepage"		: "https://github.com/MichalSeidler/assets-loader",
+	"license"		: ["MIT"],
+
+	"authors": [
+		{
+			"name"		: "Michal Seidler",
+			"email"		: "info@michalseidler.com",
+			"homepage"	: "http://www.michalseidler.com/"
+		}
+	],
+
+	"support":{
+		"email"		:"info@michalseidler.com",
+		"issues"	:"https://github.com/MichalSeidler/assets-loader/issues"
+	},
+
+	"require": {
+		"php"							: ">=5.5.0",
+		"nette/application"				: "~2.2",
+		"nette/caching"					: "~2.2",
+		"nette/component-model"			: "~2.2",
+		"nette/di"						: "~2.2",
+		"nette/http"					: "~2.2",
+		"nette/mail"					: "~2.2",
+		"nette/neon"					: "~2.2",
+		"nette/security"				: "~2.2",
+		"nette/utils"					: "~2.2",
+		"latte/latte"					: "~2.2",
+		"tracy/tracy"					: "~2.2",
+	  	"flame/modules"					: "*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Saja\\AssetsLoader\\": "src/"
+		}
+	}
+}
