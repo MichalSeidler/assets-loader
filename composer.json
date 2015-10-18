@@ -36,9 +36,7 @@
 		"tracy/tracy"					: "~2.2",
 	  	"flame/modules"					: "*"
 	},
-	"autoload": {
-		"psr-0": {
-			"saja\\assets-loader\\": "src/"
-		}
-	}
+    "autoload": {
+      "classmap": ["src/"]
+    }
 }

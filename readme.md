@@ -13,7 +13,7 @@ The best way to install Saja/AssetsLoader is using  [Composer](http://getcompose
 ```json
 {
 	"require": {
-		"Saja/assets-loader": "dev-master"
+		"saja/assets-loader": "dev-master"
 	}
 }
 ```
