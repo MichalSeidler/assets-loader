@@ -15,8 +15,8 @@
 namespace Saja\AssetsLoader\DI;
 
 use Nette\DI\CompilerExtension;
-use Nette\Application\Routers\RouteList;
-use Nette\Application\Routers\Route;
+use Flame\Modules\DI\ModulesExtension;
+use Saja\AssetsLoader\App;
 
 class AssetsLoaderExtension extends CompilerExtension
 {
@@ -24,7 +24,7 @@ class AssetsLoaderExtension extends CompilerExtension
     {
         $builder = $this->getContainerBuilder();
         $builder->addDefinition('service.routerFactory')
-            ->setClass('Modules\RouterFactory') // YOUR ROUTER FACTORY CLASS
-            ->addTag(Flame\Modules\ModulesExtension::TAG_ROUTER); // DONT FORGET TO ADD THE TAG!
+            ->setClass('Saja\AssetsLoader\App\RouterFactory') // YOUR ROUTER FACTORY CLASS
+            ->addTag(ModulesExtension::TAG_ROUTER); // DONT FORGET TO ADD THE TAG!
     }
 }
