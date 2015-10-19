@@ -18,6 +18,7 @@ class AssetsLoader
 {
     private static $instance;
 
+    /** @return AssetsLoader */
     public static function getInstance()
     {
         if (null === static::$instance) {
@@ -28,11 +29,11 @@ class AssetsLoader
     }
 
     public function renderCss(){
-
+        return '';
     }
 
     public function renderJs(){
-
+        return '';
     }
 
     protected function __construct()
