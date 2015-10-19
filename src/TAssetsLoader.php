@@ -21,10 +21,8 @@ trait TAssetsLoader
      * @var AssetsLoader
      */
     protected $assetsLoader;
-    /**
-     * @param AssetsLoader $assetsLoader
-     */
-    public function injectAssetsLoader(AssetsLoader $assetsLoader) {
-        $this->assetsLoader = $assetsLoader;
+
+    public function injectAssetsLoader() {
+        $this->assetsLoader = AssetsLoader::getInstance();
     }
 }
