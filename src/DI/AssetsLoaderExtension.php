@@ -5,7 +5,7 @@
  * @copyright	More in license.md
  * @license		http://www.michalseidler.com
  * @author		Michal Seidler http://www.michalseidler.com
- * @package		Saja:nette-project:assets-loader
+ * @package		saja:nette-project:assets-loader
  * @subpackage	DI
  * @since		5.0
  *
@@ -15,16 +15,34 @@
 namespace Saja\AssetsLoader\DI;
 
 use Nette\DI\CompilerExtension;
-use Flame\Modules\DI\ModulesExtension;
-use Saja\AssetsLoader\App;
+use Nette\Application\Routers\RouteList;
+use Nette\Application\Routers\Route;
 
-class AssetsLoaderExtension extends CompilerExtension
+use Flame\Modules\Providers\IRouterProvider;
+use Flame\Modules\Application\Routers\NetteRouteMock;
+use Flame\Modules\Providers\ILatteMacrosProvider;
+
+
+class AssetsLoaderExtension extends CompilerExtension implements IRouterProvider, ILatteMacrosProvider
 {
-    public function loadConfiguration()
+    public function getRoutesDefinition()
     {
-        $builder = $this->getContainerBuilder();
-        $builder->addDefinition('service.routerFactory')
-            ->setClass('Saja\AssetsLoader\App\RouterFactory') // YOUR ROUTER FACTORY CLASS
-            ->addTag(ModulesExtension::TAG_ROUTER); // DONT FORGET TO ADD THE TAG!
+        $routeList = new RouteList;
+        $routeList[] = new NetteRouteMock('index.php', 'App:Homepage:default', Route::ONE_WAY);
+        $routeList[] = new Route('<module>/<presenter>/<action>[/<id>]', array(
+            'module' => 'App',
+            'Presenter' => 'Homepage',
+            'action' => 'default',
+            'id' => null
+        ));
+
+        return $routeList;
+    }
+
+    public function getLatteMacros()
+    {
+        return array(
+            'Saja\AssetsLoader\Latte\Macros\AssetMacros'
+        );
     }
 }
